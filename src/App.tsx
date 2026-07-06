@@ -1,25 +1,26 @@
 /**
- * One-page portfolio for Nikhil Ranga — short, clean, content-first.
+ * One-page portfolio for Nikhil Ranga — minimal, content-first.
  */
 
 const GITHUB = "https://github.com/Nikhilrangaa";
 const EMAIL = "nranga@unc.edu";
 const SUORAFLOW = `${GITHUB}/suoraflow`;
+const DEMO = "https://suoraflow.nikhilranga.dev";
 
 const PROJECTS: { name: string; blurb: string; href: string }[] = [
   {
     name: "ActionGate",
-    blurb: "A trust & control layer that decides, in real time, whether AI agents should be allowed to act.",
+    blurb: "Real-time permissioning for AI agents.",
     href: `${GITHUB}/ActionGate`,
   },
   {
     name: "Landed",
-    blurb: "FidHacks hackathon build — a working TypeScript product shipped in a weekend.",
+    blurb: "FidHacks hackathon build.",
     href: `${GITHUB}/landed`,
   },
   {
     name: "Neurogaze",
-    blurb: "Gaze- and vision-driven interfaces in the browser.",
+    blurb: "Gaze-driven interfaces in the browser.",
     href: `${GITHUB}/Neurogaze`,
   },
 ];
@@ -38,18 +39,9 @@ function ArrowIcon() {
   );
 }
 
-function TechPill({ label }: { label: string }) {
-  return (
-    <span className="text-xs font-mono text-indigo-300/90 bg-indigo-500/10 border border-indigo-500/20 rounded-full px-2.5 py-0.5">
-      {label}
-    </span>
-  );
-}
-
 export default function App() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-200 antialiased">
-      {/* subtle top glow */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[420px]"
         style={{
@@ -58,21 +50,15 @@ export default function App() {
         }}
       />
 
-      <main className="relative max-w-2xl mx-auto px-6">
+      <main className="relative max-w-xl mx-auto px-6">
         {/* Hero */}
-        <header className="pt-28 pb-14">
+        <header className="pt-28 pb-16">
           <h1 className="text-5xl font-extrabold tracking-tight text-zinc-50">
             Nikhil Ranga
           </h1>
-          <p className="mt-4 text-xl text-zinc-300 font-medium">
-            I like building intelligent systems.
-          </p>
-          <p className="mt-4 text-zinc-400 leading-relaxed">
-            Computer science student at UNC Chapel Hill working on applied AI and the
-            backend systems that make it real — audio pipelines, vector search, and
-            agent infrastructure.
-          </p>
-          <div className="mt-6 flex gap-3">
+          <p className="mt-4 text-xl text-zinc-300">I build intelligent systems.</p>
+          <p className="mt-2 text-zinc-500">Computer science @ UNC Chapel Hill.</p>
+          <div className="mt-7 flex gap-3">
             <a
               href={`mailto:${EMAIL}`}
               className="rounded-lg bg-indigo-600 hover:bg-indigo-500 transition-colors px-4 py-2 text-sm font-semibold text-white"
@@ -91,12 +77,12 @@ export default function App() {
         </header>
 
         {/* Featured: SuoraFlow */}
-        <section className="pb-12">
+        <section className="pb-14">
           <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4">
             Featured
           </h2>
           <a
-            href={SUORAFLOW}
+            href={DEMO}
             target="_blank"
             rel="noreferrer"
             className="group block rounded-2xl border border-zinc-800 hover:border-indigo-500/50 bg-zinc-900/60 p-7 transition-colors"
@@ -107,9 +93,6 @@ export default function App() {
                 <ArrowIcon />
               </span>
             </h3>
-            <p className="mt-1 text-indigo-300/90 text-sm font-medium">
-              AI-assisted footage search for video editors
-            </p>
 
             {/* waveform motif */}
             <div className="mt-5 flex items-end gap-[3px] h-9 opacity-80" aria-hidden>
@@ -125,22 +108,14 @@ export default function App() {
             </div>
 
             <p className="mt-5 text-sm text-zinc-400 leading-relaxed">
-              A local-first pipeline that listens to raw footage — voice-activity
-              detection, Whisper transcription, speaker diarization, vector
-              embeddings — so editors can search video by meaning and export a
-              rough cut. One command to run, no cloud required.
+              Search video footage by meaning. A local-first pipeline — Whisper,
+              voice-activity detection, vector embeddings — that turns raw footage
+              into a searchable, exportable rough cut.
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {["Python", "FastAPI", "pgvector", "Whisper", "FFmpeg", "React", "Docker"].map(
-                (t) => (
-                  <TechPill key={t} label={t} />
-                ),
-              )}
-            </div>
           </a>
           <div className="mt-3 flex gap-4 px-1 text-sm">
             <a
-              href="https://suoraflow.nikhilranga.dev"
+              href={DEMO}
               target="_blank"
               rel="noreferrer"
               className="text-indigo-400 hover:text-indigo-300 font-medium"
@@ -158,7 +133,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Other projects */}
+        {/* More */}
         <section className="pb-16">
           <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-indigo-400 mb-4">
             More
@@ -178,7 +153,7 @@ export default function App() {
                       <ArrowIcon />
                     </span>
                   </span>
-                  <span className="text-sm text-zinc-400 text-right">{p.blurb}</span>
+                  <span className="text-sm text-zinc-500 text-right">{p.blurb}</span>
                 </a>
               </li>
             ))}
@@ -186,19 +161,7 @@ export default function App() {
         </section>
 
         <footer className="pb-10 text-center text-xs text-zinc-600 font-mono">
-          © {new Date().getFullYear()} Nikhil Ranga ·{" "}
-          <a href={`mailto:${EMAIL}`} className="hover:text-zinc-400 transition-colors">
-            {EMAIL}
-          </a>{" "}
-          ·{" "}
-          <a
-            href={GITHUB}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-zinc-400 transition-colors"
-          >
-            github.com/Nikhilrangaa
-          </a>
+          © {new Date().getFullYear()} Nikhil Ranga
         </footer>
       </main>
     </div>
