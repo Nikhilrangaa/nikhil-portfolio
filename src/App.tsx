@@ -138,6 +138,24 @@ export default function App() {
               )}
             </div>
           </a>
+          <div className="mt-3 flex gap-4 px-1 text-sm">
+            <a
+              href="https://suoraflow.nikhilranga.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="text-indigo-400 hover:text-indigo-300 font-medium"
+            >
+              Live demo →
+            </a>
+            <a
+              href={SUORAFLOW}
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-400 hover:text-zinc-200"
+            >
+              Source →
+            </a>
+          </div>
         </section>
 
         {/* Other projects */}
